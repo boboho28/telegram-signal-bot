@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: tv-signal-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn main:app"
+    envVars:
+      - key: BOT_TOKEN
+        sync: false # sync: false berarti nilai akan diatur di dashboard Render saja
+      - key: CHAT_ID
+        sync: false
